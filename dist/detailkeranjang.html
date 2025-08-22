@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BunnyShop - Daftar Belanja</title>
+  <link href="output.css" rel="stylesheet" />
+</head>
+<body class="font-sans antialiased bg-[#EC7FA9]">
+
+  <!-- NAVBAR -->
+  <nav class="bg-[#FFB8E0] px-4 py-3">
+    <div class="flex items-center">
+      <img src="image/bunny.png" alt="Bunny Logo" class="w-8 h-8" />
+      <h1 class="ml-2 text-xl font-bold text-[#EC7FA9]">BunnyShop</h1>
+      <h2 class="mx-3 h-6 w-px bg-[#EC7FA9]"></h2>
+      <h3 class="text-[#EC7FA9] font-medium text-base">Daftar Belanja</h3>
+    </div>
+  </nav>
+
+  <div class="text-white text-lg font-bold mt-4 px-4">Daftar belanjaanku</div>
+
+  <div id="cart-container" class="p-4 space-y-4"></div>
+
+  <!-- Section Total & Checkout -->
+  <div class="max-w-screen-lg mx-auto mt-10 bg-pink-300 rounded-3xl p-8 flex flex-col md:flex-row items-center justify-between gap-4 text-pink-700">
+    <div class="flex items-center gap-2">
+      <input type="checkbox" id="select-all" class="w-5 h-5 accent-pink-500">
+      <label for="select-all" class="text-lg font-semibold">Pilih Semua</label>
+    </div>
+    <p class="text-lg font-semibold" id="total-price">Total Produk: Rp0</p>
+    <a href="berhasilcekout.html" class="bg-[#EC7FA9] text-white font-semibold px-6 py-3 rounded-xl hover:bg-pink-500 transition">Checkout</a>
+  </div>
+
+  <!-- Footer -->
+  <footer class="max-w-screen-lg mx-auto mt-12 mb-10 bg-pink-300 rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-pink-800 text-sm">
+    <div>
+      <h2 class="text-lg font-bold mb-2">BunnyShop</h2>
+      <p>Toko online terpercaya untuk kebutuhan fashion, aksesori, dan gaya hidupmu. Belanja mudah, cepat dan aman bersama BunnyShop</p>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold mb-2">Menu</h2>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+        <li><a href="#" class="hover:underline">Hubungi Kami</a></li>
+        <li><a href="#" class="hover:underline">Cara Belanja</a></li>
+        <li><a href="#" class="hover:underline">Syarat & Ketentuan</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold mb-2">Bantuan</h2>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">FAQ</a></li>
+        <li><a href="#" class="hover:underline">Kebijakan Pengembalian</a></li>
+        <li><a href="#" class="hover:underline">Metode Pembayaran</a></li>
+        <li><a href="#" class="hover:underline">Informasi Pengiriman</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="text-lg font-bold mb-2">Hubungi Kami</h2>
+      <p>Email support@BunnyShop.id</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const cartContainer = document.getElementById('cart-container');
+    const totalPriceEl = document.getElementById('total-price');
+    const selectAllCheckbox = document.getElementById('select-all');
+    fetch('https://fakestoreapi.com/products=0')
+      .then(res => res.json())
+      .then(product => {
+        let cart = JSON.parse(localStorage.getItem("bunnyCart")) || [];
+
+        const isExist = cart.some(p => p.id === product.id);
+        if (!isExist) {
+          cart.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
+            color: "Pink",
+            qty: 1
+          });
+          localStorage.setItem("bunnyCart", JSON.stringify(cart));
+        }
+
+        renderCart();
+      });
+
+    function renderCart() {
+      const cart = JSON.parse(localStorage.getItem("bunnyCart")) || [];
+      cartContainer.innerHTML = '';
+
+      cart.forEach((product, index) => {
+        const item = document.createElement('div');
+        item.className = 'bg-[#FFB8E0] rounded-lg p-4 flex items-center space-x-4 shadow-sm';
+        item.innerHTML = `
+          <input type="checkbox" class="product-checkbox w-5 h-5 accent-pink-500 mt-2" data-index="${index}">
+          <img src="${product.image}" alt="${product.title}" class="w-24 h-24 object-cover rounded-md flex-shrink-0">
+          <div class="flex-grow">
+            <p class="font-semibold text-white">${product.title}</p>
+            <p class="text-white text-sm">Warna: ${product.color}</p>
+            <p class="text-white font-bold mt-1">Rp ${product.price.toLocaleString('id-ID')}</p>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button class="decrement bg-[#EC7FA9] text-white w-8 h-8 rounded-full flex items-center justify-center">-</button>
+            <span class="qty font-bold text-[#2D3748]">${product.qty}</span>
+            <button class="increment bg-[#EC7FA9] text-white w-8 h-8 rounded-full flex items-center justify-center">+</button>
+          </div>
+          <div class="flex bg-pink-400 rounded-2xl overflow-hidden text-white text-sm font-semibold divide-x divide-white shadow-md">
+            <button class="delete px-4 py-1 hover:bg-pink-500 transition">Hapus</button>
+          </div>
+        `;
+
+        cartContainer.appendChild(item);
+
+        const incrementBtn = item.querySelector('.increment');
+        const decrementBtn = item.querySelector('.decrement');
+        const qtySpan = item.querySelector('.qty');
+        const deleteBtn = item.querySelector('.delete');
+        const checkbox = item.querySelector('.product-checkbox');
+
+        incrementBtn.addEventListener('click', () => {
+          cart[index].qty++;
+          localStorage.setItem("bunnyCart", JSON.stringify(cart));
+          renderCart();
+        });
+
+        decrementBtn.addEventListener('click', () => {
+          if (cart[index].qty > 1) {
+            cart[index].qty--;
+            localStorage.setItem("bunnyCart", JSON.stringify(cart));
+            renderCart();
+          }
+        });
+
+        deleteBtn.addEventListener('click', () => {
+          cart.splice(index, 1);
+          localStorage.setItem("bunnyCart", JSON.stringify(cart));
+          renderCart();
+        });
+
+        checkbox.addEventListener('change', () => updateTotal());
+      });
+
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const cart = JSON.parse(localStorage.getItem("bunnyCart")) || [];
+      const checkboxes = document.querySelectorAll('.product-checkbox');
+      let total = 0;
+
+      checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+          const idx = checkbox.getAttribute('data-index');
+          total += cart[idx].price * cart[idx].qty;
+        }
+      });
+
+      totalPriceEl.textContent = `Total Produk: Rp${total.toLocaleString('id-ID')}`;
+    }
+
+    selectAllCheckbox.addEventListener('change', () => {
+      const checkboxes = document.querySelectorAll('.product-checkbox');
+      checkboxes.forEach(cb => cb.checked = selectAllCheckbox.checked);
+      updateTotal();
+    });
+
+    document.addEventListener("DOMContentLoaded", renderCart);
+
+
+  </script>
+</body>
+</html>

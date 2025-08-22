@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login BunnyShop</title>
+  <link href="output.css" rel="stylesheet">
+</head>
+<body class="bg-[#FFB8E0] font-sans">
+
+  <div class="min-h-screen flex items-center justify-center px-4 py-8">
+    <div class="bg-[#F5F5F5] rounded-3xl flex flex-col md:flex-row w-full max-w-5xl shadow-xl relative overflow-hidden">
+
+      <!-- Kiri - Logo & Welcome -->
+      <div class="bg-[#FFB8E0] w-full md:w-1/2 flex flex-col items-center justify-center p-8 text-center rounded-3xl md:rounded-r-none">
+        <img src="image/bunny.png" alt="BunnyShop Logo" class="h-36 w-36 mb-6">
+        <h1 class="text-3xl font-bold text-[#EC7FA9] mb-2">BunnyShop</h1>
+        <p class="font-semibold text-[#EC7FA9]">Halo, Teman Bunny!</p>
+        <p class="font-semibold text-[#EC7FA9] px-6">Masuk sekarang untuk menemukan produk favoritmu dan nikmati promo menarik setiap hari.</p>
+      </div>
+
+      <!-- Kanan - Form -->
+      <div class="w-full md:w-1/2 p-8 relative">
+        <!-- Bantuan -->
+        <a href="#" class="absolute top-4 right-4 text-sm text-[#EC7FA9] font-medium hover:underline">Butuh bantuan?</a>
+
+        <h2 class="text-2xl font-bold text-[#EC7FA9] text-center mb-6">Masuk</h2>
+
+        <form class="space-y-4">
+          
+          <input
+            type="text"
+            placeholder="No. Handphone/Username/Email"
+            class="w-full px-4 py-3 rounded-lg bg-[#FFB8E0] text-gray-800 placeholder-white font-semibold focus:outline-none focus:ring-2 focus:ring-[#EC7FA9]"
+          >
+
+          
+          <input
+            type="password"
+            placeholder="Password"
+            class="w-full px-4 py-3 rounded-lg bg-[#FFB8E0] text-gray-800 placeholder-white font-semibold focus:outline-none focus:ring-2 focus:ring-[#EC7FA9]"
+          >
+          <div class="text-right">
+            <a href="#" class="text-sm text-[#EC7FA9] font-semibold hover:underline">Lupa Password?</a>
+          </div>
+
+        
+        <div class="mt-10 bg-[#EC7FA9]" >
+          <a href="Homepage.html" class="Login-button w-full py-2 text-white font-bold  block text-center">Masuk</a>
+        </div>
+           
+
+
+        <div class="flex items-center my-6">
+          <hr class="flex-grow border-gray-300">
+          <span class="mx-3 text-gray-500 text-sm">atau</span>
+          <hr class="flex-grow border-gray-300">
+        </div>
+
+        <div class="flex flex-col space-y-3">
+          <button class="flex items-center justify-center bg-white border border-gray-300 py-2 rounded-lg shadow-sm hover:bg-gray-50 space-x-2">
+            <img src="image/pacebok.png" class="h-5 w-5" alt="Facebook">
+            <span class="text-sm font-semibold text-gray-700">Masuk dengan Facebook</span>
+          </button>
+          <button class="flex items-center justify-center bg-white border border-gray-300 py-2 rounded-lg shadow-sm hover:bg-gray-50 space-x-2">
+            <img src="image/google.png" class="h-5 w-5" alt="Google">
+            <span class="text-sm font-semibold text-gray-700">Masuk dengan Google</span>
+          </button>
+        </div>
+
+        <!-- Daftar akun -->
+        <p class="text-xs text-center mt-6 text-[#EC7FA9]">Baru di BunnyShop? Yuk mulai dengan daftar dulu. <a href="daftar.html" class="font-bold hover:underline">Daftar</a></p> 
+      </div>
+    </div>
+  </div>
+<div id="alert-berhasil" class="bg-[#F5A4CD] text-[#EB5DA7] px-4 py-3 rounded-lg text-center mb-6 font-semibold shadow-md hidden">
+  ✅ Berhasil memasukkan ke keranjang!
+</div>
+<script>
+  function showAlert() {
+    const alertBox = document.getElementById('alert-berhasil');
+    alertBox.classList.remove('hidden');
+    setTimeout(() => {
+      alertBox.classList.add('hidden');
+    }, 3000);
+  }
+
+  // Panggil fungsi ini saat halaman dimuat (atau bisa juga ketika tombol ditekan)
+  window.addEventListener('load', () => {
+    showAlert();
+  });
+</script>
+</body>
+</html>

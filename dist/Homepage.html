@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="output.css" rel="stylesheet">
+</head>
+</body>
+<div id="product-list"></div>
+<div id="flashsale-products"></div>
+<!-- Alert Berhasil -->
+<div id="alert-berhasil" class="bg-[#F5A4CD] text-[#EB5DA7] px-4 py-3 rounded-lg text-center mb-6 font-semibold shadow hidden">
+✅ Berhasil memasukkan ke keranjang!
+</div>
+<!--navbar-->
+<body class="font-sans bg-[#FFB8E0] text-gray-800">
+<header class="bg-[#EC7FA9] py-4 px-6 flex items-center justify-between shadow-md">
+<div class="flex items-center">
+<img src="image/bunny-lucu.png" alt="BunnyShop Logo" class="h-8 w-8 mr-4">
+<h1 class="text-[#FFEDFA] text-xl font-bold">BunnyShop</h1>
+</div>
+        
+<nav class="hidden md:flex items-center space-x-6 text-white text-lg">
+<a href="#" class="hover:text-bunny-pink-dark">Kategori</a>
+<a href="#" class="hover:text-bunny-pink-dark">Produk</a>
+</nav>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<button class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://admin\OneDrive\Gambar\DDG.DESAIN AAS\src\image"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+</button>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<button class="absolute left-2 top-1/2 -translate-y-1/2 text-gray-500">
+<img src="image/search.png" alt="Search Icon" class="w-5 h-5">
+</button>
+<input 
+type="text" 
+placeholder="Search here" 
+class="pl-10 pr-10 py-1 rounded-full bg-white bg-opacity-80 text-sm focus:outline-none focus:ring-2 focus:ring-bunny-pink-dark w-full"
+aria-label="Cari produk">
+<button class="absolute right-2 top-1/2 -translate-y-1/2">
+<img src="image/camera.png" alt="Ikon Mikrofon" class="w-5 h-5 object-contain">
+</button>
+</div>
+<a href="detailkeranjang.html" class="text-white hover:text-bunny-pink-dark">
+<img src="image/keranjang.png" alt="keranjang" class="w-6 h-6">  
+</a>
+<a href="#" class="text-white hover:text-bunny-pink-dark">
+<img src="image/bell.png" alt="bell" class="w-6 h-6">
+</a>
+<a href="#" class="text-white hover:text-bunny-pink-dark">
+<img src="image/internet.png" alt="Logo" class="w-6 h-6">
+</a>
+<div class="w-[2px] h-8 bg-[#FFB8E0]"></div>
+<a class="text-white hover:text-bunny-pink-dark">
+<img src="image/wishlist.png" alt="wishlist " class="w-6 h-6">
+</a>
+<a href="profile.html" class="text-white hover:text-bunny-pink-dark">
+<img src="image/profile.png" alt="Profil Pengguna" class="w-6 h-6">
+</a>
+</div>
+</header>
+<body class="font-sans antialiased bg-[#FEEFF3]">
+<div class="container mx-auto px-4 py-8">
+<main class="p-6">
+<!-- Banner Promosi -->
+<div class="bg-pink-300 p-4 text-center text-white rounded-lg">
+<h2 class="text-2xl font-bold">Jangan lewatkan diskon eksklusif hingga 50%! Hanya hari ini!</h2>
+<button class="mt-2 bg-pink-500 px-4 py-2 rounded text-white">Cek Sekarang</button>
+        </div>
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-[#EC7FA9] mb-4">Kategori Pilihan</h2>
+            <div class="bg-[#FFDEE9] rounded-lg p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                    <p class="text-sm text-[#2D3748]">Pakaian Bayi</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                    <p class="text-sm text-[#2D3748]">Sepatu Wanita</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                    <p class="text-sm text-[#2D3748]">Tas Sekolah</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Make Up</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Figure</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Pakaian Pria</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Jam Tangan</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Perlengkapan Rumah</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Parfume</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Handphone & Aksesoris</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Toples</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Fashion & Hijabers</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Sepatu Pria</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Elektronik</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Casing Handphone</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Skincare</p>
+                </a>
+                <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                <p class="text-sm text-[#2D3748]">Casing Handphone</p>
+                </a>
+                 <a href="#" class="bg-[#FFFFFF] rounded-md p-3 text-center block hover:shadow-md transition-shadow">
+                     <p class="text-sm text-[#2D3748]">Skincare</p>
+                </a>
+            </div>
+        </div>
+        <div>
+        </div>
+    <div id="flashsale-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"></div>
+<div id="flashsale-list" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4"></div>
+</div>
+<div>
+</div>
+
+    <footer class="bg-[#EC7FA9] py-8 mt-8">
+        <div class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-xl font-PoetsenOne font-semibold text-[#FFEDFA] mb-4">BunnyShop</h3>
+                <p class="text-[#FFEDFA] text-sm">Toko online terpercaya untuk kebutuhan fashion, aksesoris, dan gaya hidupmu. Belanja mudah, cepat dan aman bersama BunnyShop.</p>
+            </div>
+            <div>
+                 <h3 class="text-xl font-PoetsenOne font-semibold text-[#FFEDFA] mb-4">Menu</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Tentang Kami</a></li>
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Hubungi Kami</a></li>
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Cara Belanja</a></li>
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+            <div>
+                 <h3 class="text-xl font-PoetsenOne font-semibold text-[#FFEDFA] mb-4">Bantuan</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">FAQ</a></li>
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Kebijakan Pengembalian</a></li>
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Metode Pembayaran</a></li>
+                    <li><a href="#" class="text-[#FFEDFA] hover-[#FD3B86]">Informasi Pengiriman</a></li>
+                </ul>
+            </div>
+            <div>
+                 <h3 class="text-xl font-PoetsenOne font-semibold text-[#FFEDFA] mb-4">Hubungi Kami</h3>
+                <p class="text-[#FFEDFA] text-sm mb-4">Email support@bunnyshop.id</p>
+                <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+                  <img src="image/ig.png" alt="ig" class="w-10">
+                  <img src="image/facebok.png" alt="ig" class="w-10">
+                  <img src="image/x (1).png" alt="ig" class="w-10">
+                </div>
+            </div>
+        </div>
+    </footer>
+     <script src="javahome.js"></script>
+</body>
+</html>
